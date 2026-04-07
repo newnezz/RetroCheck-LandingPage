@@ -6,21 +6,21 @@
   const VERSION = '1.0.0';
 
   /** Full URL to the release folder (no trailing slash), e.g. https://github.com/org/repo/releases/download/v1.0.0 */
-  const RELEASE_BASE = '';
+  const RELEASE_BASE = 'https://github.com/newnezz/Retro-Game-Cleaner/releases/download/v1.0.0';
 
   /** Repo root for “All releases” link, e.g. https://github.com/org/repo */
-  const REPO_HOME = '';
+  const REPO_HOME = 'https://github.com/newnezz/Retro-Game-Cleaner';
 
   /** Must match `npm run dist` / electron-builder output names. */
   const FILES = {
     win: `retrocheck-${VERSION}-setup.exe`,
-    mac: `RetroCheck-${VERSION}.dmg`,
+    mac: `RetroCheck-${VERSION}-arm64.dmg`,
     'linux-appimage': `RetroCheck-${VERSION}.AppImage`,
     'linux-deb': `retrocheck_${VERSION}_amd64.deb`,
   };
 
   const needsConfig =
-    !RELEASE_BASE || RELEASE_BASE.includes('YOUR_ORG');
+    !RELEASE_BASE || RELEASE_BASE.includes('newnezz');
 
   const banner = document.getElementById('config-banner');
   if (banner) {
@@ -66,3 +66,5 @@
     }
   }
 })();
+
+
