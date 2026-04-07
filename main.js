@@ -19,8 +19,8 @@
     'linux-deb': `retrocheck_${VERSION}_amd64.deb`,
   };
 
-  const needsConfig =
-    !RELEASE_BASE || RELEASE_BASE.includes('newnezz');
+  // const needsConfig =
+  //   !RELEASE_BASE || RELEASE_BASE.includes('newnezz');
 
   const banner = document.getElementById('config-banner');
   if (banner) {
