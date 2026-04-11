@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RetroCheck: verify ROM files against DAT sets (e.g. No-Intro). Detect bad dumps and missing titles. Runs locally.">
+  <meta name="description" content="RetroCheck: local Electron app — verify ROMs against DAT files (No-Intro, TOSEC, Redump), apply filename filters without a DAT, scrape artwork via ScreenScraper, export reports, and themes. No cloud.">
   <title>RetroCheck — Download</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,14 +23,25 @@
 
   <div class="wrap">
     <header>
-      <div class="badge">LOCAL · NO CLOUD</div>
+      <!-- <div class="badge">LOCAL-FIRST</div> -->
       <h1>
         <span class="glitch" data-text="RETROCHECK">RETROCHECK</span>
       </h1>
       <p class="tagline">
-        Compare your ROM folder to a DAT (No-Intro, TOSEC, Redump, and other Logiqx/clrMAMEpro sources).
-        Reports <strong>verified</strong> ROMs, <strong>bad dumps</strong>, unknown files, and <strong>missing</strong> titles. Reads inside ZIP archives.
+        A modern, multi-platform ROM manager. Clean your library, apply custom filters and scrape artwork from the largest online database for retro games.
       </p>
+      <!-- <p class="tagline">
+        A <strong>local-first</strong> desktop app for preservation-friendly libraries: load a DAT and scan loose files or
+        <strong>ZIP</strong> (including nested zips) to see <strong>verified</strong>, <strong>bad</strong>, <strong>unknown</strong>,
+        <strong>duplicate</strong>, and <strong>missing</strong> titles — then export reports, copy or move into a clean tree,
+        and optionally rename to canonical DAT names.
+      </p>
+      <p class="tagline tagline--secondary">
+        <strong>Apply Filters</strong> trims a folder by filename rules <em>without</em> a DAT.
+        <strong>Scrape Artwork</strong> uses your ScreenScraper account for covers, shots, and <strong>gamelist.xml</strong>.
+        Multiple <strong>themes</strong>, on-disk <strong>hash cache</strong>, and in-app <strong>bug reports</strong> (mailto + diagnostics).
+        <strong>No RetroCheck account</strong> — ROM work stays on your machine.
+      </p> -->
       <span class="version-pill" id="version-pill"></span>
     </header>
 
@@ -60,26 +71,61 @@
       </article>
     </section>
 
+    <h2 class="section-title">Features</h2>
     <section class="features" aria-label="Features">
       <div class="feat">
-        <h3>DAT verification</h3>
-        <p>Match files to database entries by hash. Surfaces verified ROMs, name matches with wrong data (bad dumps), unknowns, and titles absent from your folder.</p>
+        <h3>DAT - Source of Truth</h3>
+        <p>
+          Load a DAT file from No-Intro, TOSEC, Redump, etc. and scan your ROMs against it.
+          This is the industry standard for verifying your set is complete and accurate.
+        </p>     
       </div>
       <div class="feat">
-        <h3>Archives</h3>
-        <p>Scans ROMs inside ZIP files, including nested archives.</p>
+        <h3>Remove Broken Files</h3>
+        <p>
+          Scans your ROMs and remove any files that do not match the DAT.
+          This includes files that are corrupt and likely to be from bad dumps.
+        </p>
       </div>
       <div class="feat">
-        <h3>Privacy</h3>
-        <p>All processing is local. No account or upload.</p>
+        <h3>Find Missing Games</h3>
+        <p>ROM sets you find online are almost always missing games. 
+          RetroCheck will find and list all the games that are missing from your set in a text file.</p>
       </div>
       <div class="feat">
-        <h3>Performance</h3>
-        <p>Native hashing with an on-disk cache for repeat scans.</p>
+        <h3>Apply Custom Filters</h3>
+        <p>RetroCheck comes with several custom filters for further cleaning your set.
+          This is useful if you want one game per region etc.</p>
+      </div>
+      <div class="feat">
+        <h3>Scrape Artwork</h3>
+        <p>RetroCheck allows you to scrape artwork from the largest online database for retro games.
+          This includes box art, screenshots, videos, manuals and more.</p>
+      </div>
+      <div class="feat">
+        <h3>Modern Design</h3>
+        <p>Welcome to a modern, clean design that is easy to use and navigate.
+          Current tools are dated and hard to use. RetroCheck is designed to be the modern & easy to use.
+        </p>
+      </div>
+      <div class="feat">
+        <h3>Cross-Platform</h3>
+        <p>
+          Current tools are almost always Windows exclusive.
+          RetroCheck is a cross-platform app that works on Windows, macOS and Linux.
+        </p>
+      </div>
+      <div class="feat">
+        <h3>Completely Private</h3>
+        <p>
+          RetroCheck does not collect any data from you.
+          All your data is stored locally on your machine.
+          No data is sent to any server.
+        </p>
       </div>
     </section>
 
-    <h2 class="section-title section-title--spaced">Compared to RomVault &amp; similar</h2>
+    <!-- <h2 class="section-title section-title--spaced">Compared to RomVault &amp; similar</h2>
     <section class="compare" aria-label="Comparison with other ROM tools">
       <p>
         <a href="https://www.romvault.com/" rel="noopener noreferrer">RomVault</a> and
@@ -94,24 +140,24 @@
       <h3>Where RetroCheck fits better</h3>
       <ul>
         <li><strong>Native builds</strong> for Windows, macOS, and Linux from one project—no Mono layer and no Windows-only GUI as the primary path.</li>
-        <li><strong>Minimal workflow</strong>: load a DAT, choose a folder, scan. Built for verification and classification, not rebuilding entire sets or tuning cache/archive pipelines.</li>
-        <li><strong>Lower overhead</strong> when you only need to know what matches the database, what’s wrong, and what’s missing—not full set repair or multi-DAT merge workflows.</li>
+        <li><strong>Three clear tabs</strong>: <strong>Compare DAT</strong> for verify / export / copy-move, <strong>Apply Filters</strong> for DAT-free cleanup by filename rules, and <strong>Scrape Artwork</strong> when you want covers and gamelist metadata — without rebuilding an entire RomVault-style pipeline.</li>
+        <li><strong>Lower overhead</strong> when you need verification, classification, light organisation, and optional artwork — not full set repair, CHD tooling, or multi-DAT merge workflows.</li>
       </ul>
       <h3>What you give up</h3>
       <ul>
-        <li>RetroCheck does not replace RomVault-style <strong>fixing/rebuilding</strong>, integrated DAT subscriptions, or the breadth of archive and CHD features those tools provide.</li>
+        <li>RetroCheck does not replace RomVault-style <strong>fixing/rebuilding</strong>, integrated DAT subscriptions, or the breadth of archive formats (e.g. 7z, TorrentZip) and <strong>CHD</strong> features those tools provide.</li>
         <li>Other modern cross-platform managers (e.g. <a href="https://github.com/TheAnsarya/subrom" rel="noopener noreferrer">Subrom</a>) offer full library dashboards and deep workflows; RetroCheck is intentionally smaller in scope.</li>
       </ul>
-      <p class="note">Use RomVault or clrMAMEpro when you need pro-grade set maintenance; use RetroCheck when you want a straightforward cross-platform check against a DAT.</p>
-    </section>
+      <p class="note">Use RomVault or clrMAMEpro when you need pro-grade set maintenance; use RetroCheck when you want a straightforward cross-platform DAT check plus optional filter-only cleanup and artwork passes.</p>
+    </section> -->
 
     <footer>
       <p>
         <strong>RetroCheck</strong> · MIT License · Not affiliated with No-Intro, Redump, or hardware vendors.
       </p>
-      <p class="footer__links">
+      <!-- <p class="footer__links">
         <a id="releases-link" href="#">All releases on GitHub</a>
-      </p>
+      </p> -->
     </footer>
   </div>
 

@@ -313,6 +313,13 @@ h1 {
   font-weight: 600;
 }
 
+.tagline--secondary {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  opacity: 0.95;
+}
+
 .version-pill {
   display: inline-block;
   margin-top: 1rem;
@@ -451,6 +458,12 @@ h1 {
 @media (min-width: 560px) {
   .features {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
